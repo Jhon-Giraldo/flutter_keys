@@ -1,4 +1,3 @@
-import 'package:demo_keys/pages/global_keys/failed_global_keys.dart';
 import 'package:demo_keys/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: HomePage(),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.indigo,
+      ),
+      home: const HomePage(),
     );
   }
 }

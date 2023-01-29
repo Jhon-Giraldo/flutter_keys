@@ -1,4 +1,3 @@
-import 'package:demo_keys/pages/home_page.dart';
 import 'package:demo_keys/pages/page_storage_key/success_storage_keys.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +11,15 @@ class HomeStorageKeys extends StatefulWidget {
 }
 
 class _HomeStorageKeysState extends State<HomeStorageKeys> {
-  final PageStorageBucket _bucket = PageStorageBucket();
   int currentPage = 0;
-
   final List<Widget> pages = const [
     FailedStorageKeys(),
     SuccessStorageKeys(
       key: PageStorageKey('successStorageKey'),
     )
   ];
+
+  final PageStorageBucket _bucket = PageStorageBucket();
 
   @override
   Widget build(BuildContext context) {

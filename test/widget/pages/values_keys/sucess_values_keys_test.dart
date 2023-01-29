@@ -4,8 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Verificar que existen 2 TextField', (WidgetTester tester) async {
-    final keyName = ValueKey('nombre');
-    final keyEmail = ValueKey('correo');
+    const keyName = ValueKey('nombre');
+    const keyEmail = ValueKey('correo');
 
     await tester.pumpWidget(const MaterialApp(
       home: SuccessValuesKeys(),
@@ -23,8 +23,8 @@ void main() {
 
   testWidgets('Verificar que se oculta un TextField',
       (WidgetTester tester) async {
-    final keyName = ValueKey('nombre');
-    final keyEmail = ValueKey('correo');
+    const keyName = ValueKey('nombre');
+    const keyEmail = ValueKey('correo');
 
     await tester.pumpWidget(const MaterialApp(
       home: SuccessValuesKeys(),

@@ -11,7 +11,6 @@ class HomeObjectKeys extends StatefulWidget {
 
 class _HomeObjectKeysState extends State<HomeObjectKeys> {
   int currentPage = 0;
-
   final List<Widget> pages = const [FailedObjectKeys(), SuccessObjectKeys()];
 
   @override

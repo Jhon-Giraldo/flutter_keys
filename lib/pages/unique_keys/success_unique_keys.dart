@@ -25,6 +25,13 @@ class _SuccessUniqueKeysState extends State<SuccessUniqueKeys> {
     ];
   }
 
+  void reorderBox() {
+    setState(() {
+      final child = children.removeAt(0);
+      children.insert(1, child);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +43,5 @@ class _SuccessUniqueKeysState extends State<SuccessUniqueKeys> {
       ),
       floatingActionButton: FloatingActionButton(onPressed: () => reorderBox()),
     );
-  }
-
-  void reorderBox() {
-    setState(() {
-      final child = children.removeAt(0);
-      children.insert(1, child);
-    });
   }
 }

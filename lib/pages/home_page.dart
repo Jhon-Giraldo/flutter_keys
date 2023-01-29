@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:demo_keys/pages/global_keys/home_values_keys_page.dart';
 import 'package:demo_keys/pages/object_keys/home_values_keys_page.dart';
 import 'package:demo_keys/pages/page_storage_key/home_values_keys_page.dart';
@@ -5,20 +6,19 @@ import 'package:demo_keys/pages/unique_keys/home_values_keys_page.dart';
 import 'package:demo_keys/pages/values_keys/home_values_keys_page.dart';
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-import 'global_keys/failed_global_keys.dart';
-
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Material App Bar'),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
               onPressed: () {
@@ -27,7 +27,9 @@ class HomePage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: ((context) => const HomeValuesKeys())));
               },
-              child: const Text('Value Key'),
+              child: const KeyName(
+                keyTextName: 'ValueKey',
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -36,7 +38,7 @@ class HomePage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: ((context) => const HomeObjectKeys())));
               },
-              child: const Text('Object Key'),
+              child: const KeyName(keyTextName: 'ObjectKey'),
             ),
             TextButton(
               onPressed: () {
@@ -45,16 +47,16 @@ class HomePage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: ((context) => const HomeUniqueKeys())));
               },
-              child: const Text('Unique Key'),
+              child: const KeyName(keyTextName: 'UniqueKey'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) => HomeGlobalKeys())));
+                        builder: ((context) => const HomeGlobalKeys())));
               },
-              child: const Text('Global Key'),
+              child: const KeyName(keyTextName: 'GlobalKey'),
             ),
             TextButton(
               onPressed: () {
@@ -63,11 +65,25 @@ class HomePage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: ((context) => const HomeStorageKeys())));
               },
-              child: const Text('Page Storage Key'),
+              child: const KeyName(keyTextName: 'PageStorageKey'),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class KeyName extends StatelessWidget {
+  const KeyName({super.key, required this.keyTextName});
+
+  final String keyTextName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      keyTextName,
+      style: const TextStyle(fontSize: 21),
     );
   }
 }

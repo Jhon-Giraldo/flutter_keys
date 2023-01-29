@@ -18,6 +18,21 @@ class _FailedObjectKeysState extends State<FailedObjectKeys> {
     Person('Luis', 5, 'No Binario', '2345'),
     Person('Mateo', 5, 'Masculino', '45777'),
   ];
+
+  // 1
+  void reorderTodos(int oldIndex, int newIndex) {
+    // 2
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
+    }
+
+    // 3
+    final item = myList.removeAt(oldIndex);
+    setState(() {
+      myList.insert(newIndex, item);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,28 +48,14 @@ class _FailedObjectKeysState extends State<FailedObjectKeys> {
       ),
     );
   }
-
-  // 1
-  void reorderTodos(int oldIndex, int newIndex) {
-    // 2
-    if (oldIndex < newIndex) {
-      newIndex -= 1;
-    }
-
-    // 3
-    final item = myList.removeAt(oldIndex);
-    setState(() {
-      myList.insert(newIndex, item);
-    });
-  }
 }
 
 class Person {
-  String? nombre;
-  int? edad;
-  String? genero;
+  Person(this.nombre, this.edad, this.genero, this.cedula);
+
   String? cedula;
   String? ciudad;
-
-  Person(this.nombre, this.edad, this.genero, this.cedula);
+  int? edad;
+  String? genero;
+  String? nombre;
 }

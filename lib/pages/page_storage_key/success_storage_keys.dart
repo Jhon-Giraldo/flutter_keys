@@ -8,11 +8,6 @@ class SuccessStorageKeys extends StatefulWidget {
 }
 
 class _SuccessStorageKeysState extends State<SuccessStorageKeys> {
-  void saveToPageStorage(List<Person> listPeople) {
-    PageStorage.of(context)!
-        .writeState(context, listPeople, identifier: widget.key);
-  }
-
   final List<Person> myList = [
     Person('Pedro', 2, 'Masculino'),
     Person('Maria', 3, 'Femenino'),
@@ -32,6 +27,25 @@ class _SuccessStorageKeysState extends State<SuccessStorageKeys> {
     Person('Raul', 5, 'Masculino'),
   ];
 
+  void saveToPageStorage(List<Person> listPeople) {
+    PageStorage.of(context)
+        .writeState(context, listPeople, identifier: widget.key);
+  }
+
+  // 1
+  void reorderTodos(int oldIndex, int newIndex) {
+    // 2
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
+    }
+
+    // 3
+    final item = myList.removeAt(oldIndex);
+    setState(() {
+      myList.insert(newIndex, item);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,26 +63,12 @@ class _SuccessStorageKeysState extends State<SuccessStorageKeys> {
       ),
     );
   }
-
-  // 1
-  void reorderTodos(int oldIndex, int newIndex) {
-    // 2
-    if (oldIndex < newIndex) {
-      newIndex -= 1;
-    }
-
-    // 3
-    final item = myList.removeAt(oldIndex);
-    setState(() {
-      myList.insert(newIndex, item);
-    });
-  }
 }
 
 class Person {
-  String? nombre;
+  Person(this.nombre, this.edad, this.genero);
+
   int? edad;
   String? genero;
-
-  Person(this.nombre, this.edad, this.genero);
+  String? nombre;
 }

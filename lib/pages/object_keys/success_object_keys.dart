@@ -19,6 +19,20 @@ class _SuccessObjectKeysState extends State<SuccessObjectKeys> {
     Person('Mateo', 5, 'Masculino'),
   ];
 
+  // 1
+  void reorderTodos(int oldIndex, int newIndex) {
+    // 2
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
+    }
+
+    // 3
+    final item = myList.removeAt(oldIndex);
+    setState(() {
+      myList.insert(newIndex, item);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,26 +48,12 @@ class _SuccessObjectKeysState extends State<SuccessObjectKeys> {
       ),
     );
   }
-
-  // 1
-  void reorderTodos(int oldIndex, int newIndex) {
-    // 2
-    if (oldIndex < newIndex) {
-      newIndex -= 1;
-    }
-
-    // 3
-    final item = myList.removeAt(oldIndex);
-    setState(() {
-      myList.insert(newIndex, item);
-    });
-  }
 }
 
 class Person {
-  String? nombre;
+  Person(this.nombre, this.edad, this.genero);
+
   int? edad;
   String? genero;
-
-  Person(this.nombre, this.edad, this.genero);
+  String? nombre;
 }

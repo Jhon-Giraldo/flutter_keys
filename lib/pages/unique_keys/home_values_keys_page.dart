@@ -12,7 +12,6 @@ class HomeUniqueKeys extends StatefulWidget {
 
 class _HomeUniqueKeysState extends State<HomeUniqueKeys> {
   int currentPage = 0;
-
   final List<Widget> pages = const [FailedUniqueKeys(), SuccessUniqueKeys()];
 
   @override

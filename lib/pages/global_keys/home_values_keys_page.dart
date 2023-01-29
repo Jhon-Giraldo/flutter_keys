@@ -13,7 +13,6 @@ class HomeGlobalKeys extends StatefulWidget {
 
 class _HomeGlobalKeysState extends State<HomeGlobalKeys> {
   int currentPage = 0;
-
   List<Widget>? pages;
 
   @override

@@ -11,8 +11,7 @@ class HomeValuesKeys extends StatefulWidget {
 
 class _HomeValuesKeysState extends State<HomeValuesKeys> {
   int currentPage = 0;
-
-  final List<Widget> pages = [FailedValuesKeys(), SuccessValuesKeys()];
+  final List<Widget> pages = const [FailedValuesKeys(), SuccessValuesKeys()];
 
   @override
   Widget build(BuildContext context) {
